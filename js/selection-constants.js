@@ -1,0 +1,30 @@
+const findCheckInActive=document.querySelector('#checkInActive');
+const findListActive=document.querySelector('#checkListActive');
+const findCheckOutActive=document.querySelector('#checkOutActive');
+const findPrintBillActive=document.querySelector('#printBillActive');
+const formValidationCheckIn=document.querySelector('#validationCheckIn');
+const tableList=document.querySelector('#checkListTable');
+const formCheckOut= document.querySelector('#formCheckOut');
+const findForm=document.querySelector('#checkAvailabilityForm');
+const table=document.querySelector('#tableAvailableRoomsBody');
+const formBill= document.querySelector('#formBill');
+const inputNights=document.querySelector('#validationDefault05'); 
+const inputName=document.querySelector('#validationDefault01')
+const inputSurname=document.querySelector('#validationDefault02');
+const inputAge=document.querySelector('#validationDefault03');
+const inputId=document.querySelector('#validationDefault04');
+const inputPets=document.querySelector('#pets');
+const inputPaid=document.querySelector('#paid');
+const buttonRefresh=document.querySelector('#refresh')
+const errors=document.querySelector('.errors');
+const errorsCheckOut=document.querySelector('.errors2');
+const errorsPrintBill=document.querySelector('.errors3');
+const inputCheckOut= document.querySelector('#inputForCheckOut');
+const checkData= document.querySelector('#checkRoomForCheckOut');
+const inputBill=document.querySelector('#inputForBill');
+const tableBodyListRooms=document.querySelector('#tableListBodyRooms');
+const tableBodyListClients=document.querySelector('#tableListBodyClients')
+const actualiceStore=document.querySelector('#actualiceStore');
+const preventErrors=document.querySelector('#preventError');
+
+export{findCheckInActive,findListActive,tableList, findCheckOutActive,findPrintBillActive,formValidationCheckIn,formCheckOut,findForm,table,formBill,inputNights,inputName,inputSurname,inputAge,inputId,inputPets,inputPaid,errors,inputCheckOut,checkData,inputBill,errorsCheckOut,errorsPrintBill,buttonRefresh,tableBodyListRooms,tableBodyListClients,actualiceStore,preventErrors}

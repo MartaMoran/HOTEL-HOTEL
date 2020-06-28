@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Hotel</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <p class="col-12 text-center">Bienvenido a HOTEL HOTEL</p>
+        <nav class="nav nav-pills nav-justified col-12">
+          <a class="nav-item nav-link active bg-info m-2 " id="checkInActive" href="#">Check In</a>
+          <a class="nav-item nav-link active bg-info m-2 " id="checkListActive" href="#">Lista habitaciones y usuarios</a>
+          <a class="nav-item nav-link active bg-info m-2 " id="checkOutActive" href="#">Check Out</a>
+          <a class="nav-item nav-link active bg-info m-2 " id="printBillActive" href="#">Imprimir factura</a>
+        </nav>
+        <div class="col-12 ">
+         <form class="d-none" id="checkAvailabilityForm">
+            <button type="submit" class="btn btn-primary">Comprobar Disponibilidad</button>
+            <div class="" id="availableRoomsToggle">
+              <table class="tableAvailableRooms text-center">
+               <thead>
+                  <tr>
+                   <th scope="col">Habitación
+                    </th>
+                   <th scope="col">Capacidad</th>
+                    <th scope="col">Precio</th>
+                  </tr>
+                </thead>
+                <tbody id="tableAvailableRoomsBody">
+                </tbody>
+              </table>
+              <div class="repeated"></div>
+            </div>
+         </form>
+          <form class="d-none" id="validationCheckIn">
+            <div class="form-row">
+              <div class="col-3 mt-5 mb-3">
+               <label for="validationDefault01">Nombre</label>
+               <input type="text" class="form-control" id="validationDefault01" required>
+              </div>
+             <div class="col-3 mt-5 mb-3">
+                <label for="validationDefault02">Apellidos</label>
+                <input type="text" class="form-control" id="validationDefault02"  required>
+              </div>
+             <div class="col-3 mt-5 mb-3">
+                <label for="validationDefault03">Edad</label>
+                <input type="number" class="form-control" id="validationDefault03" required>
+              </div>
+              <div class="col-3 mt-5 mb-3">
+                <label for="validationDefault04"> DNI/NIE </label>
+                <input type="text" class="form-control" id="validationDefault04" required>
+              </div>
+              <div class="col-3 mt-4 mb-3">
+                <label for="validationDefault05">Noches</label>
+                <input type="number" class="form-control" id="validationDefault05" required>
+              </div>
+              <div class="col-2 mt-5 mt-4">
+              <select class="custom-select" id="pets" >
+                <option selected>Animales</option>
+                <option id="petOne" value="1">Si</option>
+                <option id="petTwo" value="2">No</option>
+              </select>
+            </div>
+            <div class="col-2 mt-5 mt-4">
+              <select class="custom-select" id="paid" >
+                <option selected>Pagado</option>
+                <option id="petOne" value="1">Si</option>
+                <option id="petTwo" value="2">No</option>
+              </select>
+            </div>
+              <div class="col-2 mt-5">
+              <button class="btn btn-primary" type="submit">Formalizar check in</button>
+            </div>
+            <div  class="col-3 mt-5">
+            <button class="btn btn-info" id="refresh" type="button">refrescar</button>
+            </div>
+            <div class="errors"></div>
+          </div>
+          </form>
+          <div  class= "d-none" id="checkListTable">
+            <button type="button" id="actualiceStore">Actualizar</button>
+            <table class="tableListRooms text-center">
+              <thead>
+                 <tr>
+                  <th scope="col">Habitación
+                   </th>
+                  <th scope="col">Capacidad</th>
+                   <th scope="col">Precio</th>
+                   <th scope="col">Ocupada</th>
+                 </tr>
+               </thead>
+               <tbody id="tableListBodyRooms">
+               </tbody>
+             </table>
+             <table class="tableListClients text-center">
+              <thead>
+                 <tr>
+                  <th scope="col">Habitación
+                   </th>
+                  <th scope="col">Nombre y apellidos reserva</th>
+                   <th scope="col">Noches</th>
+                   <th scope="col">Pagada</th>
+                 </tr>
+               </thead>
+               <tbody id="tableListBodyClients">
+               </tbody>
+             </table>
+             <div id="preventError"></div>
+          </div>
+          <form class="d-none" id="formCheckOut">
+            <div class="col-3 mt-5">
+              <label for="inputForCheckOut"> Numero de habitación </label>
+              <input type="number" class="form-control" id="inputForCheckOut" required>
+            </div>
+            <div>
+              <button type="button" id="checkRoomForCheckOut">Datos habitación</button>
+            </div>
+          <div class="col-3 p-3">
+          <button class="btn btn-info" type="submit">Formalizar check Out</button>
+          </div>
+          <div class="errors2"></div>
+          </form>
+          <form class="d-none" id="formBill">
+            <div class="col-3 mt-5">
+              <label for="inputForBill"> Numero de habitación </label>
+              <input type="number" class="form-control" id="inputForBill" required>
+            </div>
+            <div class="col-3 p-3">
+              <button class="btn btn-warning" type="submit">Imprimir factura</button>
+              </div>
+              <div class="errors3"></div>
+          </form>
+        
+        </div>
+      </div>
+    </div>
+    <script src="index.js" type="module"></script>
+  <!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
