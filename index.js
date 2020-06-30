@@ -43,14 +43,15 @@ import{findCheckInActive,findListActive, tableList, findCheckOutActive,findPrint
         event.preventDefault();
         table.innerHTML='';        
         checkAvailability.forEach(item =>{
-            table.insertAdjacentHTML('beforeend', `<tr id=${item.id}><td>${item.id}</td> <td>${item.capacity}</td><td>${item.pvp}</td><td class="btn btn-info">Añadir habitación</td></tr></td>`);
+            table.insertAdjacentHTML('beforeend', ` <tr class="" id=${item.id}><td>${item.id}</td> <td>${item.capacity}</td><td>${item.pvp}</td><td class="btn btn-info">Añadir habitación</td></tr></td>`);
              });
       });    
        
       table.addEventListener('click',event=>{
-        event.preventDefault();
-        table.innerHTML='';   
-        const roomId = event.target.parentNode.id;
+        event.preventDefault();   
+        const roomId = event.target.parentNode.id
+        event.target.parentNode.classList.add('d-none')
+        
         table.insertAdjacentHTML("afterend",`<input class="form-control" id="roomID" type="text" readonly="readonly" value="${roomId}"/>`);
          }); 
 
@@ -87,11 +88,15 @@ import{findCheckInActive,findListActive, tableList, findCheckOutActive,findPrint
             return  errors.insertAdjacentHTML('beforeend', `<div class="alert alert-danger" role="alert">demasiados dias</div></div>`)
          }
 
-        
          const roomSelection= document.querySelector('#roomID');
          const roomSelectionConvertNumber=parseInt(roomSelection.value);
          const findRoomNumber=store.rooms.find((value)=>value.id===roomSelectionConvertNumber);
-         findRoomNumber.avy=false;
+            if (roomSelectionConvertNumber===findRoomNumber.id){
+                findRoomNumber.avy=false
+                roomSelection.classList.add('d-none')
+
+            }
+         
         checkIn(inputName.value, inputSurname.value, inputAge.value,inputId.value,roomSelectionConvertNumber, roomWithPets, inputNightsConvertNumber,  roomPaid/* roomOne.value ,roomTwo.value,roomThree.value,roomFour.value */);
     });
     
